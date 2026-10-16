@@ -1,6 +1,5 @@
 "use client";
 
-import { title } from "process";
 import { useEnsName } from "wagmi";
 import { mainnet } from "wagmi/chains";
 
