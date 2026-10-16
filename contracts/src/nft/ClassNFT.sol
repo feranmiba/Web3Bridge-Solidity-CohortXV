@@ -13,11 +13,11 @@ contract ClassNFT is ERC721URIStorage, Ownable {
     constructor() ERC721("Web3Bridge Class", "W3B") Ownable(msg.sender) {}
 
     /// @param uri e.g. ipfs://<metadataCID>
-    function mint(string calldata uri) external returns (uint256 tokenId) {
+    function mint(address to, string calldata uri) external returns (uint256 tokenId) {
         tokenId = _nextTokenId++;
-        _safeMint(msg.sender, tokenId);
+        _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
-        emit Minted(msg.sender, tokenId, uri);
+        emit Minted(to, tokenId, uri);
     }
 
     function totalMinted() external view returns (uint256) {
